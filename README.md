@@ -7,8 +7,11 @@ Weasel project is migrating from cloud to on-premise.
 - [ ] Deploy ArgoCD
 - [ ] Integrating Harbor with the CI/CD Pipeline
 - [ ] Grant Permission for Bedrock Anthropic Claude Sonnet 3.5
+- [ ] Environment Variable Secret Setting
 - [ ] Migrate Frontend
 - [ ] Migrate Backend
+- [ ] Deploy Frontend
+- [ ] Deploy Backend
 
 ## Notice
 
