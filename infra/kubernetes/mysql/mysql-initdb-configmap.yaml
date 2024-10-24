@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-initdb-config
+  namespace: weasel-mysql
+data:
+  init.sql: |
+    -- weasel 데이터베이스를 생성하고 기본 문자 집합과 정렬 방식을 설정
+    CREATE DATABASE IF NOT EXISTS weasel CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+    
+    -- 사용자의 모든 권한을 부여하고 권한을 적용
+    GRANT ALL PRIVILEGES ON weasel.* TO 's5t1'@'%' WITH GRANT OPTION;
+    FLUSH PRIVILEGES;
