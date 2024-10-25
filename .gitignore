@@ -180,4 +180,6 @@ sketch
 
 ### Kubernetes
 
-infra/kubernetes/mysql/mysql-secret.yaml
+mysql-secret.yaml
+backend-secret.yaml
+weasel-backend-spc.yaml
