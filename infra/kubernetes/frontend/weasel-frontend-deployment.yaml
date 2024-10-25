@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: weasel-frontend
+  name: weasel-frontend
+  namespace: weasel-frontend
+spec:
+  # replicas: 3
+  selector:
+    matchLabels:
+      app: weasel-frontend
+  template:
+    metadata:
+      labels:
+        app: weasel-frontend
+    spec:
+      # serviceAccountName: weasel-eks-pod-sa
+      containers:
+      - image: harbor.kkamji.net/weasel-frontend/frontend-image:1.0
+        name: weasel-frontend
+        # envFrom:
+        # - secretRef:
+        #     name: weasel-frontend-secret
+        # resources:
+        #   requests:
+        #     cpu: "250m"
+        #     memory: "512Mi"
+        #   limits:
+        #     cpu: "500m"
+        #     memory: "1Gi"
+      imagePullSecrets:
+      - name: harbor-regcred
+      # volumes:
+      # - name: weasel-secrets
+      #   csi:
+      #     driver: secrets-store.csi.k8s.io
+      #     readOnly: true
+      #     volumeAttributes:
+      #       secretProviderClass: weasel-secrets

@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: weasel-frontend-ingress
+  namespace: weasel-frontend
+  labels:
+    name: weasel-frontend-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  tls:
+  - hosts:
+    - weasel.kkamji.net
+    secretName: weasel-frontend-tls
+  ingressClassName: nginx
+  rules:
+  - host: weasel.kkamji.net
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: weasel-frontend-service
+            port: 
+              number: 80

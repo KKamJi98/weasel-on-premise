@@ -6,13 +6,13 @@ Weasel project is migrating from cloud to on-premise.
 - [x] Deploy Jenkins
 - [ ] AWS Bucket Create (Terraform)
 - [ ] Grant Permission for Bedrock Anthropic Claude Sonnet 3.5
-- [ ] Deploy ArgoCD
+- [x] Deploy ArgoCD
 - [ ] Integrating Harbor with the CI/CD Pipeline
 - [ ] Environment Variable Secret Setting
 - [ ] Migrate Frontend
-- [ ] Migrate Backend
+- [x] Migrate Backend
 - [ ] Deploy Frontend
-- [ ] Deploy Backend
+- [x] Deploy Backend
 
 ## Notice
 
