@@ -1,5 +1,7 @@
 # weasel-on-premise
 
+weasel-on-aws - <https://github.com/Team-S5T1>
+
 Weasel project is migrating from cloud to on-premise.
 
 - [x] Deploy Database (MySQL)
