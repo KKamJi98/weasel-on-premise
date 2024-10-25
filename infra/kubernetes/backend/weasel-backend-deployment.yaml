@@ -24,11 +24,11 @@ spec:
             name: weasel-backend-secret
         resources:
           requests:
-            cpu: "250m"
-            memory: "512Mi"
+            cpu: "50m"
+            memory: "250Mi"
           limits:
-            cpu: "500m"
-            memory: "1Gi"
+            cpu: "100m"
+            memory: "500Mi"
       imagePullSecrets:
       - name: harbor-regcred
       # volumes:

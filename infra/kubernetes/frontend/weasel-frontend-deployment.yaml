@@ -22,13 +22,13 @@ spec:
         # envFrom:
         # - secretRef:
         #     name: weasel-frontend-secret
-        # resources:
-        #   requests:
-        #     cpu: "250m"
-        #     memory: "512Mi"
-        #   limits:
-        #     cpu: "500m"
-        #     memory: "1Gi"
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "150Mi"
+          limits:
+            cpu: "100m"
+            memory: "300Mi"
       imagePullSecrets:
       - name: harbor-regcred
       # volumes:
