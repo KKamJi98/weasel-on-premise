@@ -15,8 +15,9 @@ import software.amazon.awssdk.services.bedrockruntime.BedrockRuntimeClient;
 
 @Slf4j
 public class InvokeModel {
-
+    
     public static String invokeModel(byte[] imageBytes, String prompt) {
+        var modelId = "anthropic.claude-3-5-sonnet-20240620-v1:0";
         try {
 
             // push test
@@ -24,14 +25,13 @@ public class InvokeModel {
             // 이미지 파일을 Base64로 인코딩
             String encodedImage = Base64.getEncoder().encodeToString(imageBytes);
 
-            // claude 3.5 soonet 모델은 버지니아 리전에서 밖에 지원 안함 => 이제 서울 리전도 지원
+            // claude 3.5 sonnet 모델은 버지니아 리전에서 밖에 지원 안함
             var client = BedrockRuntimeClient.builder()
                 .credentialsProvider(DefaultCredentialsProvider.create())
-                .region(Region.AP_NORTHEAST_2)
+                .region(Region.US_EAST_1)
                 .build();
 
             // model ID, e.g., claude-3-5-sonnet 클로우드 소넷 3.5
-            var modelId = "anthropic.claude-3-5-sonnet-20240620-v1:0";
 
             // bedrock 요청시 Message 예제
             // https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages.html
@@ -113,7 +113,10 @@ public class InvokeModel {
             return text;
 
         } catch (SdkClientException e) {
-            System.err.printf("ERROR: Can't invoke '%s'. Reason: %s", "Claude Sonnet 3.5 Model", e.getMessage());
+            log.error("ERROR: Can't invoke '{}'. Reason: {}", modelId, e.getMessage(), e);
+            throw new RuntimeException(e);
+        } catch (Exception e) {
+            log.error("ERROR: Unexpected exception.", e);
             throw new RuntimeException(e);
         }
     }
