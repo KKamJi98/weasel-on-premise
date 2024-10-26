@@ -28,7 +28,7 @@ public class InvokeModel {
             // claude 3.5 sonnet 모델은 버지니아 리전에서 밖에 지원 안함
             var client = BedrockRuntimeClient.builder()
                 .credentialsProvider(DefaultCredentialsProvider.create())
-                .region(Region.US_EAST_1)
+                .region(Region.AP_NORTHEAST_2)
                 .build();
 
             // model ID, e.g., claude-3-5-sonnet 클로우드 소넷 3.5
