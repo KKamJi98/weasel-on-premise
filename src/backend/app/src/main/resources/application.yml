@@ -1,5 +1,5 @@
 spring:
-  config:
+  # config:
     # 시크릿 매니저 설정
     #    로컬과 서버에서 application.yml 파일에 코드를 수정하지 않고 동작시키기 위해서 optional 옵션 사용
     # import: 'optional:aws-secretsmanager:/secret/prod/weasel'
