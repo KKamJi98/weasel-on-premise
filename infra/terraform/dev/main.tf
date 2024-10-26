@@ -8,13 +8,13 @@ module "weasel_images_bucket" {
     "Id" : "PolicyForCloudFrontPrivateContent",
     "Statement" : [
       {
-        "Effect": "Allow",
-        "Principal": "*",
-        "Action": "s3:GetObject",
-        "Resource": "arn:aws:s3:::weasel-images/*",
-        "Condition": {
-          "StringLike": {
-            "aws:Referer": [
+        "Effect" : "Allow",
+        "Principal" : "*",
+        "Action" : "s3:GetObject",
+        "Resource" : "arn:aws:s3:::weasel-images/*",
+        "Condition" : {
+          "StringLike" : {
+            "aws:Referer" : [
               "https://weasel.kkamji.net/*"
             ]
           }
@@ -22,7 +22,7 @@ module "weasel_images_bucket" {
       }
     ]
   })
-  enable_website              = false
+  enable_website = false
   tags = {
     Project = "weasel"
   }
