@@ -2,9 +2,11 @@ package exam.master.config;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
-import lombok.extern.slf4j.Slf4j;
+
 import org.json.JSONObject;
 import org.json.JSONPointer;
+
+import lombok.extern.slf4j.Slf4j;
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
 import software.amazon.awssdk.core.SdkBytes;
 import software.amazon.awssdk.core.exception.SdkClientException;
@@ -22,10 +24,10 @@ public class InvokeModel {
             // 이미지 파일을 Base64로 인코딩
             String encodedImage = Base64.getEncoder().encodeToString(imageBytes);
 
-            // claude 3.5 sonet 모델은 버지니아 리전에서 밖에 지원 안함
+            // claude 3.5 soonet 모델은 버지니아 리전에서 밖에 지원 안함 => 이제 서울 리전도 지원
             var client = BedrockRuntimeClient.builder()
                 .credentialsProvider(DefaultCredentialsProvider.create())
-                .region(Region.US_EAST_1)
+                .region(Region.AP_NORTHEAST_2)
                 .build();
 
             // model ID, e.g., claude-3-5-sonnet 클로우드 소넷 3.5
@@ -111,7 +113,7 @@ public class InvokeModel {
             return text;
 
         } catch (SdkClientException e) {
-            System.err.printf("ERROR: Can't invoke '%s'. Reason: %s", e.getMessage());
+            System.err.printf("ERROR: Can't invoke '%s'. Reason: %s", "Claude Sonnet 3.5 Model", e.getMessage());
             throw new RuntimeException(e);
         }
     }
