@@ -1,5 +1,5 @@
 module "weasel_images_bucket" {
-  source                      = "./modules/s3-bucket"
+  source                      = "../modules/s3"
   bucket_name                 = "weasel-images"
   public_access_block_enabled = false
   # bucket_policy               = "" # 정책 없음
