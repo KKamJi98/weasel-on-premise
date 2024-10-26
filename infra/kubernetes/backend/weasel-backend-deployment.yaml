@@ -17,7 +17,7 @@ spec:
     spec:
       # serviceAccountName: weasel-eks-pod-sa
       containers:
-      - image: harbor.kkamji.net/weasel-backend/backend-image:7.0
+      - image: harbor.kkamji.net/weasel-backend/backend-image:8.0
         name: weasel-backend
         envFrom:
         - secretRef:
