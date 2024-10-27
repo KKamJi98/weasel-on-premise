@@ -16,6 +16,7 @@ Weasel project is migrating from cloud to on-premise.
 - [x] Deploy Frontend
 - [x] Deploy Backend
 - [ ] Integrating Harbor with the CI/CD Pipeline
+- [ ] Ci/CD Pipeline Agent Configure
 
 ## Notice
 
