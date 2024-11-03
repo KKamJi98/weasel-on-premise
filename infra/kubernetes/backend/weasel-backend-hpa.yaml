@@ -17,12 +17,12 @@ spec:
       target:
         type: Utilization
         averageUtilization: 80  # 메모리 사용률을 60%로 설정
-  # - type: Resource
-  #   resource:
-  #     name: cpu
-  #     target:
-  #       type: Utilization
-  #       averageUtilization: 80  # CPU 사용률을 80%로 설정
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 80  # CPU 사용률을 80%로 설정
   behavior:
     scaleUp:
       stabilizationWindowSeconds: 60
